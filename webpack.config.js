@@ -1,11 +1,12 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');//LICENSE.txtを出力しないようにする。
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV || 'development',
     target: 'node',
+    devtool: 'inline-source-map',
     //起点となるファイル
     entry: {
         'index': path.join(__dirname, 'src/index.ts'),
@@ -41,6 +42,7 @@ module.exports = {
     externals: {
         sqlite3: 'commonjs sqlite3',
     },
+    //LICENSE.txtを出力しないようにする。
     optimization: {
         minimizer: [
             new TerserPlugin({
