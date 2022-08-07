@@ -37,6 +37,7 @@ module.exports = {
         //CopyWebpackPlugin ビルド時にコピーするプラグイン
         new CopyWebpackPlugin({ patterns: [{ from: 'public/main.bat', to: '' }] }),
         new CopyWebpackPlugin({ patterns: [{ from: 'public/start.vbs', to: '' }] }),
+        new CopyWebpackPlugin({ patterns: [{ from: 'public/stop.bat', to: '' }] }),
         new Dotenv(),
     ],
     externals: {
